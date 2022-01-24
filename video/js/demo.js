@@ -25,7 +25,7 @@ function creatRoomToken(roomname, username){
     "appId": "e16nfe56c",
     "roomName": roomname,
     "userId": username,
-    "expireAt": 1605064271, //设置到2020年
+    "expireAt": 1924876800, //设置到2020年
     "permission": "user"
   };
   // console.log(roomAccess)
