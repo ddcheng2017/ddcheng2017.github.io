@@ -42,7 +42,7 @@ function creatRoomToken(roomname, username){
   // setp5. 将AccessKey与以上两者拼接得到房间鉴权
   let roomToken = AK + ":" + safe64(encodedSign) + ":" + encodedRoomAccess;
   // console.log(roomToken);
-  joinRoom(roomToken);
+  joinRoom('pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:BUY-Ek_0v-FZd3HT-DLdQDyletE=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsImV4cGlyZUF0IjoxNjczNjAzOTc1LCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoiMTIzNCIsInVzZXJJZCI6IjEyMzQifQ==');
   //正则验证输入信息
 }
 // 确认引入成功

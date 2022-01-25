@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Publish Page</title>
+</head>
+
+<body>
+  <p>本地音视频轨</p>
+  <div id="localtracks" style="width: 640px;"></div>
+  <button onclick="joinRoom()">加入房间</button>
+  <!-- 这里引入我们的 SDK -->
+  <script src="./js/qnweb-rtc.js"></script>
+  <script>
+    const token1 = 'pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:vgqealG4jP2keZVTBHIXBcGKGRs=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsImV4cGlyZUF0IjoxNjcyNTY5MzkxLCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoiMTIzNCIsInVzZXJJZCI6IjQzMjEifQ=='
+    // 确认引入成功
+    console.log("current version",QNRTC.VERSION);
+    // 这里采用的是 async/await 的异步方案，您也可以根据需要或者习惯替换成 Promise 的写法
+    async function joinRoom() {
+      // 创建QNRTCClient对象
+      const client=QNRTC.createClient();
+      // 这里替换成刚刚生成的 RoomToken
+      await client.join(token1);
+      console.log("joinRoom success!");
+      await publish(client);
+      console.log("publish success!");
+      // 在这里添加
+      // 获取页面上的一个元素作为播放画面的父元素
+      const localElement=document.getElementById("localtracks");
+      // 遍历本地采集的 Track 对象
+      for(const localTrack of localTracks) {
+        console.log(localTrack)
+        // 如果这是麦克风采集的音频 Track，我们就不播放它。
+        if(localTrack.track.info.kind==="audio") continue;
+        // 调用 Track 对象的 play 方法在这个元素下播放视频轨
+        localTrack.play(localElement);
+      }
+    }
+    async function publish(client) {
+      // 同时采集麦克风音频和摄像头视频轨道。
+      // 这个函数会返回一组audio track 与 video track
+      const localTracks=await QNRTC.createMicrophoneAndCameraTracks();
+      console.log("my local tracks",localTracks);
+      // 将刚刚的 Track 列表发布到房间中
+      await client.publish(localTracks);
+      console.log("publish success!");
+    }
+  </script>
+</body>
+
+</html>

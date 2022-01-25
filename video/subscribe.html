@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Subscribe Page</title>
+</head>
+
+<body>
+  <p>远端音视频轨</p>
+  <div id="remotetracks" style="width: 640px;"></div>
+  <button onclick="joinRoom()">加入房间</button>
+  <!-- 同样，这里引入我们的 SDK -->
+  <script src="./js/qnweb-rtc.js"></script>
+  <script>
+    // 确认引入成功
+    console.log("current version",QNRTC.VERSION);
+    // 这里采用的是 async/await 的异步方案，您也可以根据需要或者习惯替换成 Promise 的写法
+    async function joinRoom() {
+      // 创建QNRTCClient对象
+      const client=QNRTC.createClient();
+      // 需要先监听对应事件再加入房间
+      autoSubscribe(client);
+      // 这里替换成刚刚生成的 RoomToken
+      await client.join('pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:KlZVWzDIS9DGkQW6IMnnG09V7rE=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsImV4cGlyZUF0IjoxNjcyNTY5MzkxLCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoiMTIzNCIsInVzZXJJZCI6IjEyMzQifQ==');
+      console.log("joinRoom success!");
+    }
+    // 这里的参数 client 是指刚刚初始化的 QNRTCClient 对象
+    async function subscribe(client,tracks) {
+      // 传入 Track 对象数组调用订阅方法发起订阅，异步返回成功订阅的 Track 对象。
+      const remoteTracks=await client.subscribe(tracks);
+      // 选择页面上的一个元素作为父元素，播放远端的音视频轨
+      const remoteElement=document.getElementById("remotetracks");
+      // 遍历返回的远端 Track，调用 play 方法完成在页面上的播放
+      for(const remoteTrack of [...remoteTracks.videoTracks,...remoteTracks.audioTracks]) {
+        remoteTrack.play(remoteElement);
+      }
+    }
+    // 这里的参数 client 是指刚刚初始化的 QNRTCClient 对象, 同上
+    function autoSubscribe(client) {
+      // 添加事件监听，当房间中出现新的 Track 时就会触发，参数是 trackInfo 列表
+      client.on("user-published",(userId,tracks) => {
+        console.log("user-published!",userId,tracks);
+        subscribe(client,tracks)
+          .then(() => console.log("subscribe success!"))
+          .catch(e => console.error("subscribe error",e));
+      });
+      // 就是这样，就像监听 DOM 事件一样通过 on 方法监听相应的事件并给出处理函数即可
+    }
+
+  </script>
+</body>
+
+</html>
