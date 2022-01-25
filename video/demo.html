@@ -26,10 +26,10 @@
 </head>
 
 <body>
-  <label>请输入 RoomToken 加入房间开始连麦</label>
+  <!-- <label>请输入 RoomToken 加入房间开始连麦</label>
   <input id="roomtoken" type="text" />
   <p class="tips">如果您不知道如何生成 RoomToken，查看<a href="https://developer.qiniu.io/rtc/8802/pd-overview"
-      target="_black">这里的接入流程</a></p>
+      target="_black">这里的接入流程</a></p> -->
   <button onclick="joinRoom()">加入房间</button>
   <p>本地视频</p>
   <div id="localtracks"></div>
@@ -41,16 +41,18 @@
 <script>
   // 确认引入成功
   console.log("current version",QNRTC.VERSION);
+  const token1 = 'pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:vgqealG4jP2keZVTBHIXBcGKGRs=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsImV4cGlyZUF0IjoxNjcyNTY5MzkxLCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoiMTIzNCIsInVzZXJJZCI6IjQzMjEifQ=='
+  const token2 = 'pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:F26jsTQ3xYYqNdC9PesRTDspftQ=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsImV4cGlyZUF0IjoxNjcyNTM2NjA4LCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoiMTIzNCIsInVzZXJJZCI6IjEyMzQifQ=='
   // 这里采用的是 async/await 的异步方案，您也可以根据需要或者习惯替换成 Promise 的写法
   async function joinRoom() {
     // 创建QNRTCClient对象
     const client=QNRTC.createClient();
     // 需要先监听对应事件再加入房间
     autoSubscribe(client);
-    const roomTokenInput=document.getElementById("roomtoken");
-    const roomToken=roomTokenInput.value;
+    // const roomTokenInput=document.getElementById("roomtoken");
+    // const roomToken=roomTokenInput.value;
     // 这里替换成刚刚生成的 RoomToken
-    await client.join(roomToken);
+    await client.join(token1);
     console.log("joinRoom success!");
     await publish(client);
   }
