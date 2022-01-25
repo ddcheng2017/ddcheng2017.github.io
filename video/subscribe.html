@@ -15,6 +15,8 @@
   <script>
     // 确认引入成功
     console.log("current version",QNRTC.VERSION);
+    const token2 = 'pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:F26jsTQ3xYYqNdC9PesRTDspftQ=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsImV4cGlyZUF0IjoxNjcyNTM2NjA4LCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoiMTIzNCIsInVzZXJJZCI6IjEyMzQifQ=='
+
     // 这里采用的是 async/await 的异步方案，您也可以根据需要或者习惯替换成 Promise 的写法
     async function joinRoom() {
       // 创建QNRTCClient对象
@@ -22,7 +24,7 @@
       // 需要先监听对应事件再加入房间
       autoSubscribe(client);
       // 这里替换成刚刚生成的 RoomToken
-      await client.join('pHNNSR0R31i4gHfG7ZhznPjdpfyXxrr7Y6702uog:KlZVWzDIS9DGkQW6IMnnG09V7rE=:eyJhcHBJZCI6ImUxNm5mZTU2YyIsImV4cGlyZUF0IjoxNjcyNTY5MzkxLCJwZXJtaXNzaW9uIjoidXNlciIsInJvb21OYW1lIjoiMTIzNCIsInVzZXJJZCI6IjEyMzQifQ==');
+      await client.join(token2);
       console.log("joinRoom success!");
     }
     // 这里的参数 client 是指刚刚初始化的 QNRTCClient 对象
@@ -49,6 +51,11 @@
     }
 
   </script>
+  <script src="https://m.cloud.189.cn/wap/client/common/libs/vconsole/vconsole.min.js"></script>
+  <script>
+      new VConsole()
+  </script>
+
 </body>
 
 </html>
