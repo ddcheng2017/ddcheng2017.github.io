@@ -30,8 +30,9 @@ jobs:
       - name: 读取分支内容
         uses: actions/checkout@v3
       - name: 安装依赖&&打包项目
-        run: npm install 
-        run: npm docs:build
+        run: |
+          npm install 
+          npm docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
