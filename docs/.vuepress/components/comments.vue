@@ -20,7 +20,7 @@ export default {
       notify: false,
       verify: false,
       avatar: "mm",
-      placeholder: "just go go",
+      placeholder: "写点什么好呢",
       visitor: true, // 阅读量统计
       path: window.location.pathname, //(默认值，推荐) 当前文章页路径，用于区分不同的文章页，以保证正确读取该文章页下的评论列表。
     });

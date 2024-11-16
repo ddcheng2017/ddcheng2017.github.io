@@ -83,7 +83,7 @@
     window.getComputedStyle('div').width/height ;
 ```
 
-<!-- * 使用getComputedStyle方法获取时需要做兼容[参考此篇](../compatible/getCss.md) -->
+* 使用getComputedStyle方法获取时需要做兼容[参考此篇](./Compatible/getCss)
 
 ## 8、获取元素的边距
 

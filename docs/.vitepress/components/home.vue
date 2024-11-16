@@ -2,7 +2,7 @@
   <div class="bg">
     <div class="main">
       <div class="logo">
-        <img :src="imgUrl" alt />
+        <img :src="withBase(imgUrl)" alt />
       </div>
 			<h4>梦想还是要有的，万一实现了呢~</h4>
       <div class="btn">
@@ -167,12 +167,19 @@ a {
 	font-family:'Courier New', Courier, monospace;
 }
 </style>
-<script>
+<!-- <script>
+import { withBase } from 'vitepress'
 export default {
   data: function() {
     return {
-      imgUrl: "/.vitepress/public/img/logo.png"
+      imgUrl: "/img/logo.png"
     };
   }
 };
+</script> -->
+<script setup>
+import { ref } from 'vue'
+import { withBase } from 'vitepress'
+const imgUrl = ref('/img/logo.png')
+// const { theme } = useData()
 </script>
