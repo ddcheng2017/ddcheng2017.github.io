@@ -4,7 +4,7 @@
 
 在页面中自定义滚动条（使用js）以下三个代码分别为是html、css、和js代码(在vue单文件中使用需要对this等地方修改)
 
-* <a href='../examples/ScrollBarJs.html' target='_blank'>查看demo</a>
+<!-- * <a href='../examples/ScrollBarJs.html' target='_blank'>查看demo</a> -->
 
 ```html
 <div id="main">
@@ -157,7 +157,7 @@ function mousewheel(obj, Fn) {
 
 <ScrollBarJs/>
 
-* 使用在vue中需要对this指向问题进行修改，[点击下载](../examples/ScrollBarJs.vue)
+<!-- * 使用在vue中需要对this指向问题进行修改，[点击下载](../examples/ScrollBarJs.vue) -->
 
 ## 2、修改默认样式
 
