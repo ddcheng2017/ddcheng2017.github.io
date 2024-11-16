@@ -34,22 +34,9 @@ jobs:
         run: |
           npm install 
           npm run docs:build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: doc/.vitepress/dist
-
-  # 部署工作
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: 部署服务
-    steps:
-      - name: 部署到github Pages
+      - name: 部署
         uses: JamesIves/github-pages-deploy-action@v4
-        with: 
+        with:
           branch: gh-pages
           folder: doc/.vitepress/dist
+
