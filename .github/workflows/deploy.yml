@@ -25,14 +25,15 @@ concurrency:
 jobs:
   # 构建工作
   build:
+    name: '构建服务'
     runs-on: ubuntu-latest
     steps:
       - name: 读取分支内容
         uses: actions/checkout@v3
-      - name: 安装依赖&&打包项目
+      - name: 安装依赖 && 构建项目
         run: |
           npm install 
-          npm docs:build
+          npm run docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
