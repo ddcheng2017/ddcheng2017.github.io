@@ -15,4 +15,4 @@ irm https://massgrave.dev/ias | iex
 
 C:\Users\用户名\AppData\Local\Atlassian
 
-找到下吗SourceTree_XXX文件删除即可
+找到下面 SourceTree_XXX 文件删除即可
