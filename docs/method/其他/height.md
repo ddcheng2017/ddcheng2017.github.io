@@ -1,6 +1,6 @@
 # 浏览器中的宽高问题
 
-![height](../.vuepress/public/img/height/height.png)
+![height](../../.vitepress/public/img/height/height.png)
 
 * 原生js 不同浏览器有差异（可以使用jq不需要兼容）
 
@@ -83,7 +83,7 @@
     window.getComputedStyle('div').width/height ;
 ```
 
-* 使用getComputedStyle方法获取时需要做兼容[参考此篇](./Compatible/getCss)
+* 使用getComputedStyle方法获取时需要做兼容[参考此篇](../Compatible/getCss)
 
 ## 8、获取元素的边距
 
@@ -102,7 +102,7 @@
     document.body.scrollLeft //IE
 ```
 
-![height](../.vuepress/public/img/height/div.png)
+![height](../../.vitepress/public/img/height/div.png)
 
 * jq
 
