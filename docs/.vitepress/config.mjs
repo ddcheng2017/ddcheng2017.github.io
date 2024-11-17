@@ -1,6 +1,92 @@
 import { defineConfig } from 'vitepress'
-
+import { withSidebar } from 'vitepress-sidebar';
 // https://vitepress.dev/reference/site-config
+
+const vitePressOptions = {
+  base: '/',
+  title: "博客",
+  description: "个人笔记",
+  themeConfig: {
+    search: {
+      provider: 'local'
+    },
+    nav: [
+      { text: '首页', link: '/home/' },
+      { text: '随手记', link: '/practice/windows' },
+      { text: 'js方法', link: '/method/array/flat', activeMatch: '/method/' },
+      { text: '总结资料', link: '/summary/flex', activeMatch: '/summary/' },
+      // {
+      //   text: '总结资料',
+      //   items: [
+      //     { text: 'Flex布局', link: '/summary/flex' },
+      //     { text: 'Gird布局', link: '/summary/gird' },
+      //     // { text: 'RegExp正则', link: '/summary/RegExp' },
+      //     { text: 'ts总结', link: '/summary/ts' },
+      //     // { text: 'angular基础', link: '/summary/angular' },
+      //     { text: 'vue基础', link: '/summary/vue' },
+      //   ]
+      // },
+    ],
+    sidebarDepth: 0,   //侧边栏提取深度 0-不提取 1-提取H1和H2 2-提取H1 H2 H3 
+    searchMaxSuggestions: 10, //搜索默认最大十条
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+
+    outline: {
+      label: '页面导航'
+    },
+
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'medium'
+      }
+    },
+
+    langMenuLabel: '多语言',
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '菜单',
+    darkModeSwitchLabel: '主题',
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式'
+  }
+};
+
+const vitePressSidebarOptions = [
+  {
+    documentRootPath: 'docs',
+    scanStartPath: 'practice',
+    basePath: '/practice/',
+    resolvePath: '/practice/',
+    useTitleFromFileHeading: true,
+    collapsed: false,
+    capitalizeFirst: true
+  },
+  {
+    documentRootPath: 'docs',
+    scanStartPath: 'method',
+    basePath: '/method/',
+    resolvePath: '/method/',
+    useTitleFromFileHeading: true,
+    collapsed: false,
+    capitalizeFirst: true
+  },
+  {
+    documentRootPath: 'docs',
+    scanStartPath: 'summary',
+    basePath: '/summary/',
+    resolvePath: '/summary/',
+    useTitleFromFileHeading: true,
+    collapsed: false,
+    capitalizeFirst: true,
+    excludeFiles: ['angular.md']
+  }
+];
+export default defineConfig(withSidebar(vitePressOptions, vitePressSidebarOptions));
+/*
 export default defineConfig({
   base: '/',
   title: "博客",
@@ -134,3 +220,4 @@ export default defineConfig({
     darkModeSwitchTitle: '切换到深色模式'
   }
 })
+*/

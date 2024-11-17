@@ -1,5 +1,6 @@
 // .vitepress/theme/index.js
 import DefaultTheme from 'vitepress/theme'
+import './custom.css';
 // import Valine from '../components/comments.vue'
 /** @type {import('vitepress').Theme} */
 export default {

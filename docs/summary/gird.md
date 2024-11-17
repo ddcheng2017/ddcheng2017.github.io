@@ -1,7 +1,3 @@
----
-sidebar: 'auto'
-sidebarDepth: 2
----
 # Gird布局
 
 ## 一、概述

@@ -1,7 +1,3 @@
----
-# sidebar: "auto"
-# sidebarDepth: 2
----
 
 # Flex 布局
 

@@ -1,7 +1,3 @@
----
-sidebar: "auto"
-sidebarDepth: 2
----
 
 # ts 学习总结
 

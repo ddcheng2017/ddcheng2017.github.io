@@ -1,9 +1,3 @@
----
-# sidebar: "auto"
-sidebar: true
-outline: 2
-# sidebarDepth: 2
----
 
 # 六、组件通讯
 
