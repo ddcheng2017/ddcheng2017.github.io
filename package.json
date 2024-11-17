@@ -9,6 +9,7 @@
     "preview:vite": "vitepress preview docs"
   },
   "dependencies": {
+    "@giscus/vue": "^3.0.0",
     "leancloud-storage": "^4.15.2",
     "valine": "^1.5.2"
   }

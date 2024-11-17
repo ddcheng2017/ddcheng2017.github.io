@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { withSidebar } from 'vitepress-sidebar';
 // https://vitepress.dev/reference/site-config
-
+// https://vitepress.dev/zh/reference/default-theme-config#outline
 const vitePressOptions = {
   base: '/',
   title: "博客",
@@ -39,7 +39,7 @@ const vitePressOptions = {
     nav: [
       { text: '首页', link: '/home/' },
       { text: '随手记', link: '/practice/windows' },
-      { text: 'js方法', link: '/method/array/flat', activeMatch: '/method/' },
+      { text: '方法汇聚', link: '/method/array/flat', activeMatch: '/method/' },
       { text: '总结资料', link: '/summary/flex', activeMatch: '/summary/' },
       // {
       //   text: '总结资料',
@@ -60,10 +60,10 @@ const vitePressOptions = {
       next: '下一页'
     },
     outline: {
-      label: '目录'
+      label: '目录',  // 右侧文章索引名称
+      level: 'deep'  // 右侧文章索引级别
+      
     },
-    // 右侧文章索引级别
-    outline: "deep",
 
     lastUpdated: {
       text: '最后更新于',
