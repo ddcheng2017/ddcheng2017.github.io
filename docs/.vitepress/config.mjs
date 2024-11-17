@@ -6,9 +6,35 @@ const vitePressOptions = {
   base: '/',
   title: "博客",
   description: "个人笔记",
+  
+  markdown: {
+    // 默认显示行号
+    lineNumbers: true,
+    // 不写语言名时，默认识别为js
+    defaultHighlightLang: "js",
+  },
   themeConfig: {
     search: {
-      provider: 'local'
+      // 使用本地搜索
+      provider: "local",
+      options: {
+        // 配置搜索组件展示文本
+        translations: {
+          button: {
+            buttonText: "搜索文档",
+          },
+          modal: {
+            displayDetails: "显示详情",
+            noResultsText: "未找到相关结果",
+            resetButtonTitle: "清除",
+            footer: {
+              closeText: "关闭",
+              selectText: "选择",
+              navigateText: "切换",
+            },
+          },
+        },
+      },
     },
     nav: [
       { text: '首页', link: '/home/' },
@@ -33,10 +59,11 @@ const vitePressOptions = {
       prev: '上一页',
       next: '下一页'
     },
-
     outline: {
-      label: '页面导航'
+      label: '目录'
     },
+    // 右侧文章索引级别
+    outline: "deep",
 
     lastUpdated: {
       text: '最后更新于',
@@ -49,7 +76,7 @@ const vitePressOptions = {
     langMenuLabel: '多语言',
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '菜单',
-    darkModeSwitchLabel: '主题',
+    darkModeSwitchLabel: '切换主题',
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式'
   }
