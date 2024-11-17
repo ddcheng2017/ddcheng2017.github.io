@@ -38,7 +38,7 @@ const vitePressOptions = {
     },
     nav: [
       { text: '首页', link: '/home/' },
-      { text: '随手记', link: '/practice/windows' },
+      { text: '随手记', link: '/practice/windows', activeMatch: '/practice/' },
       { text: '方法汇聚', link: '/method/Array/flat', activeMatch: '/method/' },
       { text: '总结资料', link: '/summary/flex', activeMatch: '/summary/' },
       // {
