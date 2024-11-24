@@ -14,6 +14,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useData } from 'vitepress'
+import { analyticsConfig } from '../config/analytics'
 
 const { page } = useData()
 const views = ref(null)
@@ -23,7 +24,7 @@ const fetchPageViews = async () => {
   try {
     // 构建当前页面的完整 URL
     const path = window.location.pathname
-    const site = 'your-site.com' // 替换为您的网站域名
+    const site = 'ddcheng2017.github.io' // 替换为您的网站域名
     const url = `https://${site}${path}`
     
     // 调用百度统计 API
@@ -37,7 +38,7 @@ const fetchPageViews = async () => {
         start_date: '20000101', // 统计起始日期
         end_date: formatDate(new Date()), // 当前日期
         metrics: 'pv_count', // 统计指标：页面浏览量
-        site_id: 'YOUR_SITE_ID' // 替换为您的百度统计站点 ID
+        site_id: analyticsConfig.baiduAnalyticsId // 替换为您的百度统计站点 ID
       })
     })
 
