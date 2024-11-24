@@ -12,7 +12,6 @@ export function registerComponents(app) {
       .pop()
       .replace(/\.\w+$/, '')
     
-      console.log({componentName})
     // 注册组件
     app.component(componentName, module.default)
   })
