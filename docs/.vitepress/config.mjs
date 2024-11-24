@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withSidebar } from 'vitepress-sidebar';
+import { analyticsConfig } from './config/analytics'
 // https://vitepress.dev/reference/site-config
 // https://vitepress.dev/zh/reference/default-theme-config#outline
 const vitePressOptions = {
@@ -79,8 +80,22 @@ const vitePressOptions = {
     darkModeSwitchLabel: '切换主题',
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式'
-  }
+  },
+  head: [
+    [
+      'script',
+      {},
+      `var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?${analyticsConfig.baiduAnalyticsId}";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();`
+    ]
+  ]
 };
+
 
 const vitePressSidebarOptions = [
   {
