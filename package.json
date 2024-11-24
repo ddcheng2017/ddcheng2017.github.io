@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview:vite": "vitepress preview docs"
+    "preview:vite": "vitepress preview docs",
+    "deploy": "node scripts/deploy.js"
   },
   "dependencies": {
     "@giscus/vue": "^3.0.0",
