@@ -5,7 +5,7 @@ import { analyticsConfig } from './config/analytics'
 // https://vitepress.dev/zh/reference/default-theme-config#outline
 const vitePressOptions = {
   base: '/',
-  title: "博客",
+  title: "首页",
   description: "个人笔记",
   
   markdown: {
@@ -79,7 +79,8 @@ const vitePressOptions = {
     sidebarMenuLabel: '菜单',
     darkModeSwitchLabel: '切换主题',
     lightModeSwitchTitle: '切换到浅色模式',
-    darkModeSwitchTitle: '切换到深色模式'
+    darkModeSwitchTitle: '切换到深色模式',
+    logo: '/img/logo.png'
   },
   head: [
     [
@@ -92,7 +93,9 @@ const vitePressOptions = {
         var s = document.getElementsByTagName("script")[0]; 
         s.parentNode.insertBefore(hm, s);
       })();`
-    ]
+    ],
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/img/logo.png' }],
   ]
 };
 
@@ -259,7 +262,8 @@ export default defineConfig({
     sidebarMenuLabel: '菜单',
     darkModeSwitchLabel: '主题',
     lightModeSwitchTitle: '切换到浅色模式',
-    darkModeSwitchTitle: '切换到深色模式'
+    darkModeSwitchTitle: '切换到深色模式',
+    logo: '/img/logo.png'
   }
 })
 */

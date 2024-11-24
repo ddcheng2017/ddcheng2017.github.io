@@ -122,8 +122,8 @@
 
 /* 搜索框的位置 */
 .VPNavBarSearch.search {
-    justify-content: flex-end !important;
-    padding-right: 32px !important;
+    /* justify-content: flex-end !important;
+    padding-right: 32px !important; */
 }
 
 .vp-doc blockquote {
