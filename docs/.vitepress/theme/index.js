@@ -4,6 +4,7 @@ import DefaultTheme from 'vitepress/theme'
 import './custom.css';
 import GiscusComment from '../components/GiscusComment.vue'
 import BaiduAnalytics from '../components/BaiduAnalytics.vue'
+import PageViews from '../components/PageViews.vue'
 import Example from '../components/Example.vue'
 import { registerComponents } from '../utils/registerComponents'
 /** @type {import('vitepress').Theme} */
@@ -12,6 +13,7 @@ export default {
   enhanceApp({ app }) {
     // 注册自定义全局组件
     app.component('BaiduAnalytics', BaiduAnalytics)
+    app.component('PageViews', PageViews)
     app.component('Example', Example)
     // 注册所有示例组件
     registerComponents(app)
@@ -20,7 +22,8 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'doc-after': () => h('div', [
         h(BaiduAnalytics),
-        h(GiscusComment)
+        h(PageViews),
+        h(GiscusComment),
       ])
     })
   }

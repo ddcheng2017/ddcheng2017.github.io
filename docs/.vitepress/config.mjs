@@ -83,21 +83,21 @@ const vitePressOptions = {
     darkModeSwitchTitle: '切换到深色模式',
     logo: '/img/logo.png'
   },
-  // head: [
-  //   [
-  //     'script',
-  //     {},
-  //     `var _hmt = _hmt || [];
-  //     (function() {
-  //       var hm = document.createElement("script");
-  //       hm.src = "https://hm.baidu.com/hm.js?${analyticsConfig.baiduAnalyticsId}";
-  //       var s = document.getElementsByTagName("script")[0]; 
-  //       s.parentNode.insertBefore(hm, s);
-  //     })();`
-  //   ],
-  //   ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-  //   ['link', { rel: 'icon', type: 'image/png', href: '/img/logo.png' }],
-  // ],
+  head: [
+    [
+      'script',
+      {},
+      `var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?${analyticsConfig.baiduAnalyticsId}";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();`
+    ],
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/img/logo.png' }],
+  ],
 };
 
 
