@@ -1,6 +1,6 @@
 const { execSync } = require('child_process');
 
-// 获取命令行参数，跳过前两个参数（node 和脚本路径）
+// 获取命令行参数
 const commitMessage = process.argv[2];
 
 if (!commitMessage) {
@@ -10,7 +10,13 @@ if (!commitMessage) {
 }
 
 try {
-  // 执行 git 命令
+  // 先执行构建
+  console.log('开始构建...');
+  execSync('npm run build', { stdio: 'inherit' });
+  
+  // 如果构建成功，继续执行 git 命令
+  console.log('构建成功，开始部署...');
+  
   console.log('正在添加文件...');
   execSync('git add .');
 
@@ -22,6 +28,7 @@ try {
 
   console.log('部署完成！');
 } catch (error) {
-  console.error('部署过程中出现错误：', error.message);
+  // 如果有任何步骤失败，显示错误信息并终止
+  console.error('部署失败：', error.message);
   process.exit(1);
 } 

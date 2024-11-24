@@ -120,7 +120,7 @@ fn() {
 
 ### 3.3、键值对照表
 
-![键盘键值对照表](../.vuepress/public/img/vue/keycode.gif)
+![键盘键值对照表](/img/vue/keycode.gif)
 
 ## 4、vue计算属性cumputed
 

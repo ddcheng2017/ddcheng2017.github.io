@@ -1,6 +1,6 @@
 # 浏览器中的宽高问题
 
-![height](../../.vitepress/public/img/height/height.png)
+![height](/img/height/height.png)
 
 * 原生js 不同浏览器有差异（可以使用jq不需要兼容）
 
@@ -102,7 +102,7 @@
     document.body.scrollLeft //IE
 ```
 
-![height](../../.vitepress/public/img/height/div.png)
+![height](/img/height/div.png)
 
 * jq
 

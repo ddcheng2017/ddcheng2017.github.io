@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { withSidebar } from 'vitepress-sidebar';
 import { analyticsConfig } from './config/analytics'
+import path from 'path'
 // https://vitepress.dev/reference/site-config
 // https://vitepress.dev/zh/reference/default-theme-config#outline
 const vitePressOptions = {
@@ -96,7 +97,7 @@ const vitePressOptions = {
     ],
     ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     ['link', { rel: 'icon', type: 'image/png', href: '/img/logo.png' }],
-  ]
+  ],
 };
 
 
